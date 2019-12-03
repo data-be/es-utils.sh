@@ -26,8 +26,10 @@ docker run databe/es-utils restore --endpoint=http://localhost:9200
 
 ### to delete a snaphsot
 
+You will have to validate when running delete, then it is mandatory to run it with `-ti` argument
+
 ```bash
-docker run databe/es-utils delete --endpoint=http://localhost:9200
+docker run -ti databe/es-utils delete --endpoint=http://localhost:9200
 --repository='my_backup_repository'
 --snapshot-date='20191203'
 ```
