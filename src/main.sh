@@ -6,6 +6,8 @@ source ./functions/snapshot-create.sh
 source ./functions/snapshot-restore.sh
 source ./functions/snapshot-delete.sh
 
+source ./functions/aliases-reassign.sh
+
 COMMAND=$1
 
 source ./utils/parse-parameters.sh
@@ -21,6 +23,10 @@ case "$COMMAND" in
 
   delete)
     snapshotDelete ${ENDPOINT} ${REPOSITORY} ${SNAPSHOT_DATE}
+    ;;
+
+  aliasesReassign)
+    aliasesReassign ${ENDPOINT} ${ALIASES}
     ;;
 
   *)

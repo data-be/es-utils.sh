@@ -7,6 +7,10 @@ case $i in
     INPUT_ENDPOINT="${i#*=}"
     shift
     ;;
+    -r=*|--repository=*)
+    INPUT_REPOSITORY="${i#*=}"
+    shift
+    ;;
     -sd=*|--snapshot-date=*)
     INPUT_SNAPSHOT_DATE="${i#*=}"
     shift
@@ -19,8 +23,8 @@ case $i in
     INPUT_INDICES="${i#*=}"
     shift
     ;;
-    -r=*|--repository=*)
-    INPUT_REPOSITORY="${i#*=}"
+    -a=*|--aliases=*)
+    INPUT_ALIASES="${i#*=}"
     shift
     ;;
     --default)
@@ -38,9 +42,10 @@ done
 today=`date +%Y%m%d`
 
 ENDPOINT=${INPUT_ENDPOINT:-$DEFAULT_ENDPOINT}
+REPOSITORY=${INPUT_REPOSITORY:-$DEFAULT_REPOSITORY}
 SNAPSHOT_DATE=${INPUT_SNAPSHOT_DATE:-$DEFAULT_SNAPSHOT_DATE}
 INDEX_DATE=${INPUT_INDEX_DATE:-$DEFAULT_INDEX_DATE}
-REPOSITORY=${INPUT_REPOSITORY:-$DEFAULT_REPOSITORY}
+
 
 if [ "$INPUT_INDICES" != "" ]; then
   INDICES=""
@@ -48,3 +53,5 @@ if [ "$INPUT_INDICES" != "" ]; then
 else
   INDICES=($DEFAULT_INDICES)
 fi
+
+ALIASES=($INPUT_ALIASES)
