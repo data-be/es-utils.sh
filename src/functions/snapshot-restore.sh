@@ -20,5 +20,5 @@ function snapshotRestore() {
 
   echo "Snapshot (snapshot_${SNAPSHOT_DATE}) is starting for the indices: ${indicesCommand%?}"
 
-  curl -X PUT "${ENDPOINT}/_snapshot/${REPOSITORY}/snapshot_${SNAPSHOT_DATE}/_restore?wait_for_completion=true&pretty" -H 'Content-Type: application/json' -d "${payload}"
+  curl -X POST "${ENDPOINT}/_snapshot/${REPOSITORY}/snapshot_${SNAPSHOT_DATE}/_restore?wait_for_completion=true&pretty" -H 'Content-Type: application/json' -d "${payload}"
 }
