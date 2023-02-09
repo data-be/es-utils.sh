@@ -18,6 +18,7 @@ case $i in
     -id=*|--snapshot-prefix=*)
     INPUT_SNAPSHOT_PREFIX="${i#*=}"
     shift
+    ;;
     -id=*|--index-date=*)
     INPUT_INDEX_DATE="${i#*=}"
     shift
