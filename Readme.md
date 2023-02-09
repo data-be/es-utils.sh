@@ -11,6 +11,7 @@ Examples are displayed with all options (`--`), they all are optional and will u
 ```bash
 docker run databe/es-utils create --endpoint=http://localhost:9200
 --repository='my_backup_repository'
+--snapshot-prefix='my_snapshot_prefix'
 --snapshot-date='20191203' --index-date='20191203'
 --indices='index1 index2 index3'
 ```
@@ -20,6 +21,7 @@ docker run databe/es-utils create --endpoint=http://localhost:9200
 ```bash
 docker run databe/es-utils restore --endpoint=http://localhost:9200
 --repository='my_backup_repository'
+--snapshot-prefix='my_snapshot_prefix'
 --snapshot-date='20191203' --index-date='20191203'
 --indices='index1 index2 index3'
 ```
@@ -31,6 +33,7 @@ You will have to validate when running delete, then it is mandatory to run it wi
 ```bash
 docker run -ti databe/es-utils delete --endpoint=http://localhost:9200
 --repository='my_backup_repository'
+--snapshot-prefix='my_snapshot_prefix'
 --snapshot-date='20191203'
 ```
 

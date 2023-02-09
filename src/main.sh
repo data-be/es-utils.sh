@@ -14,15 +14,15 @@ source ./utils/parse-parameters.sh
 
 case "$COMMAND" in
   create)
-    snapshotCreate ${ENDPOINT} ${REPOSITORY} ${SNAPSHOT_DATE} ${INDEX_DATE} ${INDICES}
+    snapshotCreate ${ENDPOINT} ${REPOSITORY} ${SNAPSHOT_PREFIX} ${SNAPSHOT_DATE} ${INDEX_DATE} ${INDICES}
     ;;
 
   restore)
-    snapshotRestore ${ENDPOINT} ${REPOSITORY} ${SNAPSHOT_DATE} ${INDEX_DATE} ${INDICES}
+    snapshotRestore ${ENDPOINT} ${REPOSITORY} ${SNAPSHOT_PREFIX} ${SNAPSHOT_DATE} ${INDEX_DATE} ${INDICES}
     ;;
 
   delete)
-    snapshotDelete ${ENDPOINT} ${REPOSITORY} ${SNAPSHOT_DATE}
+    snapshotDelete ${ENDPOINT} ${REPOSITORY} ${SNAPSHOT_PREFIX} ${SNAPSHOT_DATE}
     ;;
 
   aliasesReassign)
