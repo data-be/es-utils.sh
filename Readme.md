@@ -9,8 +9,9 @@ Examples are displayed with all options (`--`), they all are optional and will u
 ### Snapshots: to create a snapshot
 
 ```bash
-docker run databe/es-utils create --endpoint=http://localhost:9200
+docker run ghcr.io/data-be/es-utils.sh/esutils:vVERSION_NUMBER create --endpoint=http://localhost:9200
 --repository='my_backup_repository'
+--snapshot-prefix='my_snapshot_prefix'
 --snapshot-date='20191203' --index-date='20191203'
 --indices='index1 index2 index3'
 ```
@@ -18,8 +19,9 @@ docker run databe/es-utils create --endpoint=http://localhost:9200
 ### Snapshots: to restore a snaphsot
 
 ```bash
-docker run databe/es-utils restore --endpoint=http://localhost:9200
+docker run ghcr.io/data-be/es-utils.sh/esutils:vVERSION_NUMBER restore --endpoint=http://localhost:9200
 --repository='my_backup_repository'
+--snapshot-prefix='my_snapshot_prefix'
 --snapshot-date='20191203' --index-date='20191203'
 --indices='index1 index2 index3'
 ```
@@ -29,8 +31,9 @@ docker run databe/es-utils restore --endpoint=http://localhost:9200
 You will have to validate when running delete, then it is mandatory to run it with `-ti` argument
 
 ```bash
-docker run -ti databe/es-utils delete --endpoint=http://localhost:9200
+docker run -ti ghcr.io/data-be/es-utils.sh/esutils:vVERSION_NUMBER delete --endpoint=http://localhost:9200
 --repository='my_backup_repository'
+--snapshot-prefix='my_snapshot_prefix'
 --snapshot-date='20191203'
 ```
 
@@ -39,6 +42,6 @@ docker run -ti databe/es-utils delete --endpoint=http://localhost:9200
 You will have to validate when running delete, then it is mandatory to run it with `-ti` argument
 
 ```bash
-docker run -ti databe/es-utils aliasesReassign --endpoint=http://localhost:9200
+docker run -ti ghcr.io/data-be/es-utils.sh/esutils:vVERSION_NUMBER aliasesReassign --endpoint=http://localhost:9200
 --aliases='alias1:index1 alias2:index2'
 ```

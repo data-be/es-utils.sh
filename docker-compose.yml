@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  esutils:
+    build:
+      context: .
+    volumes:
+      - ./src:/opt/es-utils
